@@ -1,0 +1,99 @@
+.calendarPageWrapper {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.calendarMain {
+    height: 100px;
+}
+\
+.col-center span{
+    font-size: 30px;
+}
+.CalendarButton{
+    background-color:white;
+    border:none;
+    display:flex;
+    align-items:center;
+}
+    .calendarButton:hover {
+        background-color: #1d112b;
+        color:white;
+    }
+
+.calendarContainer {
+    max-width: 100%;
+    background-color: white;
+    padding: 15px 0px 15px 0px;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.cell {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    max-width: 14%;
+  
+}
+
+    .cell.disabled {
+        color: #ccc;
+    }
+
+    .cell.selected {
+        background-color: #1d112b;
+        color: white;
+        border-radius: 15px;
+    }
+
+.header {
+    margin-bottom: 20px;
+}
+
+.days {
+    background-color: #f1f1f1;
+}
+
+.number {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 30px;
+    border-radius: 50%;
+   
+}
+
+.days .col {
+    max-width: 14%;
+}
+
+.days{
+    background-color:#f0f1f3;
+}
+
+.titleContainer{
+    font-weight:600;
+    font-size:36px;
+    text-align:left;
+  
+}
+.PagesComponentHeader {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.PagesComponentHeader .Buttons > * {
+    margin-right: 10px;
+}
+
+    .PagesComponentHeader .Buttons > *:last-child {
+        margin-right: 0;
+    }
+.Buttons button {
+    background-color: #1d112b;
+    border:none;
+}
+
+    .Buttons button:hover {
+        background-color: #350aca
+    }
