@@ -15,11 +15,7 @@ function Clients() {
                     <CustomerList />
                 </Col>
                 <Col md={8}>
-<<<<<<< HEAD
-                    {/*<div className='clientContainer'> Client Informations</div>*/}
-=======
                     <div className='clientContainer'> Client Informations</div>
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                    
                     <PriceSummary />
                     <LatestCommunications />

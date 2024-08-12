@@ -13,11 +13,7 @@ function Sale() {
                     <Card className="sales-card">
                         <Card.Body>
                             <div className="icon-badge">
-<<<<<<< HEAD
-                                <img src="public/acquisition.png" alt="icon" className="icon" />
-=======
                                 <img src="/Image/acquisition.png" alt="icon" className="icon" />
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                                 <Badge bg="success" className="badge">+2.08%</Badge>
                             </div>
                             <Card.Title>Total Sales</Card.Title>
@@ -35,11 +31,7 @@ function Sale() {
                     <Card className="order-card">
                         <Card.Body>
                             <div className="icon-badge">
-<<<<<<< HEAD
-                                <img src="public/acquisition.png" alt="icon" className="icon" />
-=======
                                 <img src="/Image/acquisition.png" alt="icon" className="icon" />
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                                 <Badge bg="success" className="badge">+2.4%</Badge>
                             </div>
                             <Card.Title>Total Orders</Card.Title>
@@ -56,11 +48,7 @@ function Sale() {
                     <Card className="order-card">
                         <Card.Body>
                             <div className="icon-badge">
-<<<<<<< HEAD
-                                <img src="public/acquisition.png" alt="icon" className="icon" />
-=======
                                 <img src="/Image/acquisition.png" alt="icon" className="icon" />
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                                 <Badge bg="danger" className="badge">-2.9%</Badge>
                             </div>
                             <Card.Title>Sales (GELATO)</Card.Title>
@@ -77,11 +65,7 @@ function Sale() {
                     <Card className="order-card">
                         <Card.Body>
                             <div className="icon-badge">
-<<<<<<< HEAD
-                                <img src="public/acquisition.png" alt="icon" className="icon" />
-=======
                                 <img src="/Image/acquisition.png" alt="icon" className="icon" />
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                                 <Badge bg="danger" className="badge">-2.9%</Badge>
                             </div>
                             <Card.Title>Total Sales (Quantity)</Card.Title>

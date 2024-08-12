@@ -24,19 +24,11 @@ function CalendarSide() {
                         </Dropdown.Menu>
                     </Dropdown>
                     <Button className='CalendarButton'>
-<<<<<<< HEAD
-                        <Image style={{ width: '14px', marginRight: '5px', verticalAlign: 'middle' }} src='public/calendar.png'></Image>
-                        Select dates
-                    </Button>
-                    <Button className='CalendarButton'>
-                        <Image style={{ width: '14px', marginRight: '5px', verticalAlign: 'middle' }} src='public/star.png'></Image>
-=======
                         <Image style={{ width: '14px', marginRight: '5px', verticalAlign: 'middle' }} src='/Image/calendar.png'></Image>
                         Select dates
                     </Button>
                     <Button className='CalendarButton'>
                         <Image style={{ width: '14px', marginRight: '5px', verticalAlign: 'middle' }} src='/Image/star.png'></Image>
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                         Favorites </Button>
             
             </Col>

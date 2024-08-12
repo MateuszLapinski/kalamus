@@ -6,6 +6,7 @@
 .calendarMain {
     height: 100px;
 }
+
 .col-center span{
     font-size: 30px;
 }
@@ -15,10 +16,10 @@
     display:flex;
     align-items:center;
 }
-    .calendarButton:hover {
-        background-color: #1d112b;
-        color:white;
-    }
+.calendarButton:hover {
+    background-color: #1d112b;
+    color:white;
+}
 
 .calendarContainer {
     max-width: 100%;
@@ -33,18 +34,18 @@
     text-align: center;
     cursor: pointer;
     max-width: 14%;
-  
+
 }
 
-    .cell.disabled {
-        color: #ccc;
-    }
+.cell.disabled {
+    color: #ccc;
+}
 
-    .cell.selected {
-        background-color: #1d112b;
-        color: white;
-        border-radius: 15px;
-    }
+.cell.selected {
+    background-color: #1d112b;
+    color: white;
+    border-radius: 15px;
+}
 
 .header {
     margin-bottom: 20px;
@@ -60,7 +61,7 @@
     height: 20px;
     line-height: 30px;
     border-radius: 50%;
-   
+
 }
 
 .days .col {
@@ -75,7 +76,7 @@
     font-weight:600;
     font-size:36px;
     text-align:left;
-  
+
 }
 .PagesComponentHeader {
     margin-bottom: 30px;
@@ -85,14 +86,14 @@
     margin-right: 10px;
 }
 
-    .PagesComponentHeader .Buttons > *:last-child {
-        margin-right: 0;
-    }
+.PagesComponentHeader .Buttons > *:last-child {
+    margin-right: 0;
+}
 .Buttons button {
     background-color: #1d112b;
     border:none;
 }
 
-    .Buttons button:hover {
-        background-color: #350aca
-    }
+.Buttons button:hover {
+    background-color: #350aca
+}

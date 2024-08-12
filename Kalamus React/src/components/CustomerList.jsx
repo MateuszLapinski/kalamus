@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-import React, {useEffect, useState} from 'react';
-import { ListGroup } from 'react-bootstrap';
-export default function CustomerList() {
-    const [customers, setCustomers] = useState([]);
-
-    useEffect(() => {
-        fetch(`http://localhost:8080/customer/all`, {
-            method: 'GET',
-        })
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                } else {
-                    console.log('Something went wrong');
-                    return [];
-                }
-            })
-            .then(data => {
-                const filteredData = data.map(customer => ({
-                    id: customer.id,
-                    name: customer.name,
-                    email: customer.email,
-                }));
-                setCustomers(filteredData);
-            })
-            .catch(error => {
-                console.log("Something went wrong", error);
-            });
-    }, []);
-
-
-
-
-
-=======
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 export default function CustomerList() {
@@ -56,7 +20,6 @@ export default function CustomerList() {
         { id: 16, name: 'Jane Smith', email: 'jane@example.com' },
         { id: 17, name: 'Bob Johnson', email: 'bob@example.com' }
     ];
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
     return (
         <div className="customer-list-container">
             <h3 className="customer-list-header">List of Clients</h3>

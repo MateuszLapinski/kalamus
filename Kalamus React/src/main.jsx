@@ -7,19 +7,11 @@ import Raport from './pages/raports.jsx'
 import Sale from './pages/sale.jsx'
 import Task from './pages/tasks.jsx'
 import Messenges from './pages/messenges.jsx'
-<<<<<<< HEAD
-import './CSS/index.css'
-import './CSS/calendar.css'
-import './CSS/clients.css'
-import './CSS/sales.css'
-import './CSS/messenges.css'
-=======
 import './index.css'
 import './calendar.css'
 import './clients.css'
 import './sales.css'
 import './messenges.css'
->>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from './layout/layout.jsx';
 import Notes from './pages/notes.jsx';
