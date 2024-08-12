@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 import React, {Component, useState} from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Image from "react-bootstrap/Image";
 import { Button } from "react-bootstrap";
+<<<<<<< HEAD
 import '../CSS/loginpage.css';
+=======
+import '../loginpage.css';
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
 
 export default function LoginPage() {
     const [isLoading, setIsLoading] = useState(false);
 
+<<<<<<< HEAD
 
     // signIn(username,password)
     // {
@@ -46,6 +55,20 @@ export default function LoginPage() {
             }, 1000);
         };
 
+=======
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Zapobiega domyślnemu działaniu formularza
+        setIsLoading(true);
+
+        // Dodanie klasy rozmycia tylko do outerloginwrapper
+        document.querySelector('.mainlogincontent').classList.add('blurred');
+
+        // Przekierowanie po 3 sekundach
+        setTimeout(() => {
+            window.location.href = '/dashboard';
+        }, 1000);
+    };
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
 
     return (
         <>

@@ -9,8 +9,13 @@ import { env } from 'process';
 
 const baseFolder =
     env.APPDATA !== undefined && env.APPDATA !== ''
+<<<<<<< HEAD
         ? `${env.APPDATA}/ASP.NET/http`
         : `${env.HOME}/.aspnet/http`;
+=======
+        ? `${env.APPDATA}/ASP.NET/https`
+        : `${env.HOME}/.aspnet/https`;
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
 
 const certificateName = "kalamus";
 const certFilePath = path.join(baseFolder, `${certificateName}.pem`);
@@ -49,7 +54,11 @@ export default defineConfig({
             }
         },
         port: 5173,
+<<<<<<< HEAD
         http: {
+=======
+        https: {
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
             key: fs.readFileSync(keyFilePath),
             cert: fs.readFileSync(certFilePath),
         }

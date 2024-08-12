@@ -1,0 +1,352 @@
+﻿#root {
+    width: 100%;
+    margin: 0 auto;
+    /*padding: 2rem;*/
+    /*padding-top: 5px;*/
+    text-align: center;
+    height: 100%;
+}
+
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+/*Top Bar */
+.topbar {
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*overflow: hidden;*/
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -300% !important;
+}
+
+.dropdown-toggle:after {
+    content: none
+}
+
+.topBarSearch input {
+    margin-left: 295px;
+    max-width: 30%;
+}
+.settingImage {
+    width: 25px;
+    transform: rotate(90deg);
+    transition: ease-in-out 0.8s;
+}
+/*.settingImage:hover {
+    transform: rotate(-90deg);
+    width: 21px;
+    transition: ease-in-out 0.8s;
+}
+*/
+.logOut {
+    color: red;
+}
+
+.logOutImage {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.logo {
+    width: 150px;
+}
+
+
+.bg-body-tertiary{
+    background-color:white !important;
+}
+
+.logoTopBar {
+    width: 295px;
+    background-color: #1d112b;
+    position:fixed;
+    
+    z-index: 1000; 
+    color: #ffffff;
+    text-align: center;
+}
+
+
+
+/*SideContainer*/
+
+.sideContainer {
+    position: fixed;
+    height: 150vh;
+    width: 295px;
+    background-color: #1d112b;
+    padding: 10px;
+    color: #cebee0;
+    z-index: 999;
+}
+
+.sidePaneImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0;
+
+}
+.sideimg {
+    width: 20px;
+}
+
+.SideButton {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+}
+
+a.menu :hover {
+    background-color: #0b0514;
+    color: white;
+    margin-right: -5px;
+}
+
+.SideButton h3 {
+    font-size: 16px;
+    height: 100%;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+
+
+
+/* Main Side */
+
+.mainside {
+    margin-left: 295px;
+    background-color: #f0f1f3;
+    padding: 20px 20px 0 20px;
+}
+
+.mainContent {
+    background-color: #f0f1f3;
+    margin-top: 20px;
+    overflow-y: auto;
+   /* position: relative;*/
+    
+}
+.mainContent .row{
+    margin-bottom:30px;
+}
+.backButton {
+    margin-left: 20px;
+    background-color: #1d112b;
+    color: #f0f1f3;
+    width: 100px;
+    border: none;
+    font-weight: 900;
+}
+    .backButton:hover {
+        background-color: #cebee0;
+        color: #1d112b;
+    }
+.backImage{
+    width:20px;
+    margin-right:5px;
+}
+.cardWrapper {
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    justify-content: center;
+    align-items: center;
+    margin-bottom:30px;
+    height:300px;
+    background-color:white;
+}
+
+.cardImage {
+    width: 90px;
+    height: 90px;
+}
+.anotherCard {
+    margin-top:20px;
+    margin-left: 15px;
+    width: 350px;
+    height: 147px;
+    background-color: white;
+    border-radius: 15px;
+    
+}
+.cardRed {
+    border-left: solid #f07a7a 10px;
+}
+.cardBlue {
+    border-left: solid #9235ff 10px;
+}
+
+.cardYellow {
+    border-left: solid #ffc11f 10px;
+}
+
+.cardGreen {
+    border-left: solid #5fa2ff 10px;
+}
+
+.innerCard {
+    width: 45%;
+    float: left;
+    margin-right: 5px;
+    margin-left: 5px;
+    
+}
+
+.innerCardLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.innerCardRight {
+   padding-top:20px;
+    height: 100%;
+}
+.innerCard h3{
+    margin-bottom:0;
+    font-size:20px;
+}
+.innerCard p {
+    margin-bottom: 0;
+    font-size: 12px;
+}
+.cardValue p{
+    margin-top:20px;
+    font-size:16px !important;
+}
+
+.messInfo {
+    color: darkred;
+}
+
+.line {
+    width: 100%; 
+    height: 1px;
+    background-color: darkgray; 
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.ChartContainer {
+    max-width: 100%;
+    background-color: white;
+    padding: 15px 0px 15px 0px;
+    border-radius: 15px;
+    margin-left:20px;
+}
+.ChartContainer h4{
+    text-align:left;
+    margin-bottom:30px;
+    font-size:20px;
+    font-weight: bold;
+    padding-left:20px;
+}
+.chartWrapper {
+    max-width: 100%;
+    height: auto;
+    padding-left: 20px;
+}
+.ChartContainer col:first-of-type{
+    margin-right:10px;
+}
+
+
+/*Calendar*/
+
+
+/*-------------------------------*/
+
+
+.notificationContainer {
+    max-width: 100%;
+    background-color: white;
+    padding: 15px 0px 15px 0px;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.notificationHeader{
+    text-align:left;
+    padding-left:20px;
+}
+.notificationButton {
+    display:block;
+    border:  #9235ff 3px solid;
+    border-radius: 15px;
+    color: #9235ff;
+    font-weight:bold;
+    background-color:white;
+    max-width:100px;
+    height:50px;
+    align-content:center;
+}
+
+.notificationSingle h4,
+.notificationSingle h6,
+.notificationSingle p {
+    text-align: left;
+    padding-left: 20px;
+}
+
+@media (max-width: 980px) {
+    .mainside{
+        margin-left:0px;
+    }
+    .mainContent {
+        margin-left: 0px;
+    }
+    .sideContainer {
+        display:none;
+    }
+    .logoTopBar {
+        display: none;
+    }
+
+    .topBarSearch {
+        display: none;
+    }
+    .mobileLogo {
+        width: 150px;
+    }
+    .normalMenu {
+        display: none;
+    }
+}
+@media(min-width:981px){
+
+    .mobileLogo{
+        display:none;
+    }
+    .mobileMenu {
+        display: none;
+    }
+}
+
+.calendarWrapper {
+    margin: 30px 30px 0 30px;
+}
+
+.react-calendar {
+    width: 100% !important;
+}
+
+
+/*Calendar Page*/
+

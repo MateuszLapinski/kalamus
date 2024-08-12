@@ -18,7 +18,11 @@ export default function PriceSummary() {
                 <Card className="orders-card">
                     <Card.Body>
                         <div className="icon-badge">
+<<<<<<< HEAD
                             <img src="public/acquisition.png" alt="icon" className="icon" />
+=======
+                            <img src="/Image/acquisition.png" alt="icon" className="icon" />
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                             <Badge bg="success" className="badge">+2.08%</Badge>
                         </div>
                         <Card.Title>Paid so far</Card.Title>
@@ -31,7 +35,11 @@ export default function PriceSummary() {
                 <Card className="orders-card">
                     <Card.Body>
                         <div className="icon-badge">
+<<<<<<< HEAD
                             <img src="public/acquisition.png" alt="icon" className="icon" />
+=======
+                            <img src="/Image/acquisition.png" alt="icon" className="icon" />
+>>>>>>> e400b66571f875118cadff1745a5451c1b8bc1b2
                             <Badge bg="success" className="badge">+2.08%</Badge>
                         </div>
                         <Card.Title>Completion date</Card.Title>

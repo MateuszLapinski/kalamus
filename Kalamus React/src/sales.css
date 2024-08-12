@@ -1,0 +1,59 @@
+.card-body {
+    max-height: 100%;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.text-center{
+    border-radius:15px;
+}
+
+
+
+.sales-card {
+    background-color: #1d112b;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+}
+
+.order-card {
+    background-color: white;
+    color: #1d112b;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+}
+
+.icon-badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    width: 40px;
+}
+
+.badge {
+    background-color: #00ff00;
+    font-size: 0.8rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.sales-amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.sales-description {
+    font-size: 1rem;
+    color: lightgray;
+}
