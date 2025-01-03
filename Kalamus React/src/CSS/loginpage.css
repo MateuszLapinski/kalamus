@@ -1,4 +1,7 @@
+.outerloginwrapper{
 
+
+}
 
 .outerloginwrapper::before{
     content: '';
@@ -7,7 +10,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-   background-image: url("../../public/meeting.jpg");
+    background-image: url('../../public/meeting.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.25;
@@ -20,7 +23,7 @@
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Odst�p pomi�dzy elementami */
     width: 400px;
 }
 
@@ -41,7 +44,8 @@
 .forgotText {
     width: 200px;
     color: rgba(32,5,72,1);
-    font-weight: normal;
+    font-weight: M
+;
     font-size: 16px;
     opacity: 1;
     text-align: center;
@@ -67,7 +71,7 @@
     background-color: rgba(32,5,72,1);
     border:none;
     height:50px;
-    text-align: center;
+    text-align: center; /* Wyśrodkowanie tekstu poziomo */
     line-height: 40px;
 
 }
@@ -89,8 +93,8 @@
     box-shadow: 0 0 0 .45rem rgba(197, 162, 243, 0.49);
 }
 
-
-
+/* Styl dla rozmycia */
+/* Styl dla rozmycia */
 .blurred {
     filter: blur(5px);
     pointer-events: none;

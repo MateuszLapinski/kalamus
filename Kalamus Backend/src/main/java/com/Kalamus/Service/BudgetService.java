@@ -41,8 +41,15 @@ public class BudgetService {
         return jdbcTemplate.query(sql,new BudgetDTORowMapper());
     }
 
+    public List<BudgetDTO> budgetForPeriod(String okres){
+        String sql="SELECT okres AS period, name, budzet AS budgetValue, aktywny AS isActive, Sprzedaz AS sales, Wykonanie AS execution " +
+                "FROM PH_TEST.dbo.v_wykonanie_budżetu" +
+                " WHERE okres LIKE '%"+okres+"%'";
+        return jdbcTemplate.query(sql,new BudgetDTORowMapper());
+    }
 
-    private static class BudgetDTORowMapper implements RowMapper<BudgetDTO> {
+
+  private static class BudgetDTORowMapper implements RowMapper<BudgetDTO> {
         @Override
         public BudgetDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
             BudgetDTO dto = new BudgetDTO();
@@ -51,8 +58,9 @@ public class BudgetService {
             dto.setBudgetValue(rs.getInt("budgetValue"));
             dto.setActive(rs.getBoolean("isActive"));
             dto.setSales(rs.getInt("sales"));
-            dto.setExecution(rs.getInt("execution"));
+            dto.setExecution(rs.getDouble("execution"));
             return dto;
+
         }
     }
 }

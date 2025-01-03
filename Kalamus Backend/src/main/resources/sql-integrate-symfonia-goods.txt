@@ -1,0 +1,24 @@
+MERGE INTO PH_TEST.dbo.towar AS T
+USING (
+    SELECT 
+        TW.Id,
+        TW.Shortcut, 
+        TW.Name, 
+        TW.UnitOfMeassure, 
+        KD.shortcut as kind
+    FROM 
+        [H50_ako].[HM].[Products] TW
+    JOIN 
+        [H50_ako].[HM].[ProductKind] KD 
+        ON TW.KindId = KD.id
+) AS Src
+ON T.base_id = Src.id
+WHEN MATCHED THEN
+    UPDATE SET 
+        T.kod = Src.Shortcut,
+        T.nazwa = Src.Name,
+        T.jm = Src.UnitOfMeassure,
+        T.rodzaj = Src.kind
+WHEN NOT MATCHED THEN
+    INSERT (base_id, kod, nazwa, jm, rodzaj)
+    VALUES (Src.id, Src.Shortcut, Src.Name, Src.UnitOfMeassure, Src.shortcut);

@@ -1,0 +1,69 @@
+MERGE INTO [PH_TEST].[dbo].[Kontrahent] AS TARGET
+USING (
+    SELECT
+        CON.[id] AS base_id,
+        CON.[kod] AS kod_kontrahent,
+        CON.[nazwa] AS nazwa_kontrahent,
+        CON.[nip] AS NIP,
+        CON.[miejscowosc] AS miasto,
+        CON.[kodpocz] AS kod_pocztowy,
+        ISNULL(ADR.ulica, '') + ' ' + ISNULL(ADR.[Numer Budynku], '') + ' ' + ISNULL(ADR.[Numer Lokalu], '') AS ulica,
+        ISNULL(ADR.[Telefon1], '') AS telefon,
+        ISNULL(ADR.[E-mail], '') AS email,
+        CAT.id AS id_opiekun
+    FROM
+        [H50_ako].[SSCommon].[vKontrahenci] CON
+    INNER JOIN
+        [H50_ako].[HM].[ContractorCatalog] CAT ON CON.katalog = CAST(CAT.Id AS NVARCHAR)
+    LEFT JOIN
+        [H50_ako].[HM].[REP_Contractors] ADR
+        ON CON.id = ADR.[Identyfikator kontrahenta]
+    WHERE
+        CON.kod NOT LIKE 'W-%'
+) AS SOURCE
+ON TARGET.base_id = SOURCE.base_id
+WHEN MATCHED AND (
+        TARGET.kod_kontrahent <> SOURCE.kod_kontrahent OR
+        TARGET.nazwa_kontrahent <> SOURCE.nazwa_kontrahent OR
+        TARGET.NIP <> SOURCE.NIP OR
+        TARGET.miasto <> SOURCE.miasto OR
+        TARGET.kod_pocztowy <> SOURCE.kod_pocztowy OR
+        TARGET.ulica <> SOURCE.ulica OR
+        TARGET.telefon <> SOURCE.telefon OR
+        TARGET.email <> SOURCE.email OR
+        TARGET.id_opiekun <> SOURCE.id_opiekun
+    ) THEN
+    UPDATE SET
+        kod_kontrahent = SOURCE.kod_kontrahent,
+        nazwa_kontrahent = SOURCE.nazwa_kontrahent,
+        NIP = SOURCE.NIP,
+        miasto = SOURCE.miasto,
+        kod_pocztowy = SOURCE.kod_pocztowy,
+        ulica = SOURCE.ulica,
+        telefon = SOURCE.telefon,
+        email = SOURCE.email,
+        id_opiekun = SOURCE.id_opiekun
+WHEN NOT MATCHED THEN
+    INSERT (
+        base_id,
+        kod_kontrahent,
+        nazwa_kontrahent,
+        NIP,
+        miasto,
+        kod_pocztowy,
+        ulica,
+        telefon,
+        email,
+        id_opiekun
+    ) VALUES (
+        SOURCE.base_id,
+        SOURCE.kod_kontrahent,
+        SOURCE.nazwa_kontrahent,
+        SOURCE.NIP,
+        SOURCE.miasto,
+        SOURCE.kod_pocztowy,
+        SOURCE.ulica,
+        SOURCE.telefon,
+        SOURCE.email,
+        SOURCE.id_opiekun
+    );

@@ -1,0 +1,84 @@
+MERGE INTO [PH_TEST].[dbo].[Faktury] AS TARGET
+USING (
+    SELECT
+        DK.id AS base_id,
+        DK.kod AS nr_faktury,
+        DK.data AS data_wyst,
+        CAST(YEAR(DK.data) AS VARCHAR) + '.' + RIGHT('0' + CAST(MONTH(DK.data) AS VARCHAR), 2) AS okres_sprz,
+        Nabywca.shortcut AS nabywca,
+        Odbiorca.shortcut AS odbiorca,
+        DP.lp AS pozycja,
+        DP.kod AS kod_towaru,
+        DP.opis AS nazwa_towaru,
+        DP.ilosc AS ilosc,
+        DP.jm AS jm,
+        DP.cena AS cena,
+        DP.wartNetto AS wartosc
+    FROM
+        [H50_ako].[HM].[DK] DK
+        INNER JOIN [H50_ako].[HM].[DP] DP ON DP.super = DK.id
+        INNER JOIN [H50_ako].SSCommon.STContractors Odbiorca ON Odbiorca.id = DK.odid
+        INNER JOIN [H50_ako].SSCommon.STContractors Nabywca ON Nabywca.id = DK.khid
+    WHERE
+        DK.typ = 0 AND DK.subtyp <> 0
+        AND DK.bufor = 0
+        AND DK.anulowany = 0
+) AS SOURCE
+ON TARGET.base_id = SOURCE.base_id
+   AND TARGET.pozycja = SOURCE.pozycja
+   AND TARGET.kod_towaru = SOURCE.kod_towaru
+WHEN MATCHED AND (
+        TARGET.nr_faktury <> SOURCE.nr_faktury OR
+        TARGET.data_wyst <> SOURCE.data_wyst OR
+        TARGET.okres_sprz <> SOURCE.okres_sprz OR
+        TARGET.nabywca <> SOURCE.nabywca OR
+        TARGET.odbiorca <> SOURCE.odbiorca OR
+        TARGET.kod_towaru <> SOURCE.kod_towaru OR
+        TARGET.nazwa_towaru <> SOURCE.nazwa_towaru OR
+        TARGET.ilosc <> SOURCE.ilosc OR
+        TARGET.jm <> SOURCE.jm OR
+        TARGET.cena <> SOURCE.cena OR
+        TARGET.wartosc <> SOURCE.wartosc
+    ) THEN
+    UPDATE SET
+        nr_faktury = SOURCE.nr_faktury,
+        data_wyst = SOURCE.data_wyst,
+        okres_sprz = SOURCE.okres_sprz,
+        nabywca = SOURCE.nabywca,
+        odbiorca = SOURCE.odbiorca,
+        kod_towaru = SOURCE.kod_towaru,
+        nazwa_towaru = SOURCE.nazwa_towaru,
+        ilosc = SOURCE.ilosc,
+        jm = SOURCE.jm,
+        cena = SOURCE.cena,
+        wartosc = SOURCE.wartosc
+WHEN NOT MATCHED THEN
+    INSERT (
+        base_id,
+        nr_faktury,
+        data_wyst,
+        okres_sprz,
+        nabywca,
+        odbiorca,
+        pozycja,
+        kod_towaru,
+        nazwa_towaru,
+        ilosc,
+        jm,
+        cena,
+        wartosc
+    ) VALUES (
+        SOURCE.base_id,
+        SOURCE.nr_faktury,
+        SOURCE.data_wyst,
+        SOURCE.okres_sprz,
+        SOURCE.nabywca,
+        SOURCE.odbiorca,
+        SOURCE.pozycja,
+        SOURCE.kod_towaru,
+        SOURCE.nazwa_towaru,
+        SOURCE.ilosc,
+        SOURCE.jm,
+        SOURCE.cena,
+        SOURCE.wartosc
+    );

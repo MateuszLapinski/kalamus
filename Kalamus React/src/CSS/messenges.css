@@ -5,12 +5,12 @@
 }
 
 .sidebar.badge {
-    margin-left: 5px;
+    margin - left: 5px;
 }
 
 .inbox-list {
-    max-height: 100vh;
-    overflow-y: auto;
+    max - height: 100vh;
+    overflow - y: auto;
 }
 
 .inbox-item {
@@ -20,7 +20,7 @@
   text-align: left;  /* Right align text */
 }
 .inbox-item:hover {
-    background-color: #e9ecef;
+    background - color: #e9ecef;
 }
 
 .email-detail {
@@ -45,9 +45,10 @@
 
 .email-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
-  justify-content: flex-start;
+   justify-content: flex-start;
 
 }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
 @RequestMapping("/view")
 public class ViewController {
@@ -29,7 +30,7 @@ public class ViewController {
     }
 
 
-    @GetMapping("/period")
+    @GetMapping("/{period}")
     public List<Map<String, Object>> getBudgetForPeriod(@RequestParam String period) {
         return viewService.getBudgetForPeriod(period);
     }
@@ -48,9 +49,26 @@ public class ViewController {
     public List<Map<String,Object>> getraportedinfo(
             @RequestParam(required = false) String period,
             @RequestParam(required = false) String overGroup,
-            @RequestParam(required = false) String name
+            @RequestParam(required = false) String recipent
             ){
-        return viewService.getRaportedInfo(period, overGroup, name );
+        return viewService.getRaportedInfo(period, overGroup, recipent );
     }
 
+
+
+    @GetMapping("/allgoodsforperiodandrecipent")
+    public List<Map<String, Object>> getGoodsForPeriodAndRecipent(
+            @RequestParam(required = false) String period,
+            @RequestParam(required = false) String recipent){
+
+        return viewService.getGoodsForPeriodAndRecipent(period, recipent);
+    }
+
+    @GetMapping("/invoiceforperiodrepresentative")
+    public List<Map<String, Object>> getInvoiceForPeriodRepresentative(
+            @RequestParam(required = false) String period,
+            @RequestParam(required = false) String name
+    ){
+        return  viewService.getInvoicesForPeriodAndPH(period, name);
+}
 }

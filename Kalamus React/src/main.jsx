@@ -7,11 +7,11 @@ import Raport from './pages/raports.jsx'
 import Sale from './pages/sale.jsx'
 import Task from './pages/tasks.jsx'
 import Messenges from './pages/messenges.jsx'
-import './index.css'
-import './calendar.css'
-import './clients.css'
+import './CSS/index.css'
+import './CSS/calendar.css'
+import './CSS/clients.css'
 import './sales.css'
-import './messenges.css'
+import './CSS/messenges.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from './layout/layout.jsx';
 import Notes from './pages/notes.jsx';
@@ -22,6 +22,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <Routes>
                 <Route path="/">
+                    <Route index element={<LoginPage/>} />
+                </Route>
+                <Route path="/login">
                     <Route index element={<LoginPage/>} />
                 </Route>
                 <Route path="/dashboard" element={<Layout />}>

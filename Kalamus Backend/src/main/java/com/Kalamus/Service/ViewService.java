@@ -1,6 +1,7 @@
 package com.Kalamus.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -49,31 +50,76 @@ public class ViewService {
         return localDate.format(dateTimeFormatter);
     }
 
-    public List<Map<String, Object>> getRaportedInfo(String period, String overGroup, String name) {
+    public List<Map<String, Object>> getRaportedInfo(String period, String overGroup, String recipent) {
         StringBuilder sql = new StringBuilder("SELECT * FROM PH_TEST.dbo.v_sprzedaz_ph_odbiorca_TW_grupa WHERE 1=1");
         MapSqlParameterSource params = new MapSqlParameterSource();
 
         if (period != null && !period.isEmpty()) {
-            sql.append(" AND okres_sprz = :period");
+            sql.append(" AND Okres_sprz = :period");
             params.addValue("period", period);
         }
 
-        if (name != null && !name.isEmpty()) {
-            sql.append(" AND name = :name");
-            params.addValue("name", name);
+        if (overGroup != null && !overGroup.isEmpty()) {
+            sql.append(" AND nazwa_nadgrupy = :overgroup");
+            params.addValue("overgroup", overGroup);
         }
 
-        if (overGroup != null && !overGroup.isEmpty()) {
-            sql.append(" AND nazwa_nadgrupy = :overGroup");
-            params.addValue("overgroup", overGroup);
+        if (recipent != null && !recipent.isEmpty()) {
+            sql.append(" AND odbiorca  = :recipent");
+            params.addValue("recipent", recipent);
         }
 
         sql.append(" ORDER BY okres_sprz, name, odbiorca");
 
 
         System.out.println("Executing SQL: " + sql.toString());
-        System.out.println("With parameters: " + params.getValues());
+        System.out.println("With parameters: " + params.getValues().toString());
 
         return namedParameterJdbcTemplate.queryForList(sql.toString(), params);
     }
+
+    public List<Map<String,Object>> getAllGoodsForPeriod(@Param ("period") String period){
+        String sql="SELECT * FROM PH_TEST.dbo.v_sprzedaz_towar_okres where Okres_sprz=" + period + " ORDER BY kod";
+        return jdbcTemplate.queryForList(sql);
+    }
+
+
+   public List<Map<String,Object>> getGoodsForPeriodAndRecipent(String period, String recipent) {
+
+       StringBuilder sql = new StringBuilder("SELECT * FROM PH_TEST.dbo.v_sprzedaz_okres_odbiorca_towar where 1=1");
+       MapSqlParameterSource params = new MapSqlParameterSource();
+       if (period != null && !period.isEmpty()) {
+           sql.append(" AND Okres_sprz = :period");
+           params.addValue("period" , period);
+       }
+
+       if (recipent != null && !recipent.isEmpty()) {
+           sql.append(" AND Odbiorca LIKE :recipent");
+           params.addValue("recipent", "%" + recipent + "%");
+       }
+
+       sql.append(" ORDER BY kod, okres_sprz");
+       System.out.println("Executing SQL: " + sql.toString());
+       return namedParameterJdbcTemplate.queryForList(sql.toString(), params);
+
+   }
+
+   public List<Map<String,Object>> getInvoicesForPeriodAndPH(String period, String name) {
+       StringBuilder sql = new StringBuilder("SELECT * FROM PH_TEST.dbo.v_faktury where 1=1");
+       MapSqlParameterSource params = new MapSqlParameterSource();
+
+       if (period != null && !period.isEmpty()) {
+           sql.append(" AND Okres_sprz = :period");
+           params.addValue("period" , period);
+       }
+
+       if (name != null && !name.isEmpty()) {
+           sql.append(" AND name LIKE :name");
+           params.addValue("name", "%" + name + "%");
+       }
+
+       sql.append(" ORDER BY Okres_sprz");
+       System.out.println("Executing SQL: " + sql.toString());
+       return namedParameterJdbcTemplate.queryForList(sql.toString(), params);
+   }
 }
